@@ -1,0 +1,44 @@
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body{
+    box-sizing: border-box;
+}
+
+
+.search-bar{
+    margin: 20px;
+    text-align: center;
+}
+
+.search-bar input{
+    width: 75%;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.video-item img{
+    max-width: 64px;
+}
+
+.video-detail .details{
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.list-group-item{
+    cursor:pointer;
+    transition: all .3s;
+    backface-visibility: hidden;
+}
+
+.list-group-item:hover{
+    transform: scale(1.03);
+    background-color: #eee;
+    z-index: 10;
+}

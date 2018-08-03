@@ -3,7 +3,6 @@ const HDWalletProvider = require('truffle-hdwallet-provider'),
  {interface, bytecode} = require('./compile') 
 
 const provider = new HDWalletProvider(
-    
     'prison snow blush ability evolve screen report salt elephant artwork diamond say',
     'https://rinkeby.infura.io/v3/f946fc59a7c6401fabc0ebb27a05f13d'
   )

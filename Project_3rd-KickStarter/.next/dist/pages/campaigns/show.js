@@ -44,6 +44,16 @@ var _campaign = require('../../ethereum/campaign');
 
 var _campaign2 = _interopRequireDefault(_campaign);
 
+var _semanticUiReact = require('semantic-ui-react');
+
+var _web = require('../../ethereum/web3');
+
+var _web2 = _interopRequireDefault(_web);
+
+var _contributeform = require('../../components/contributeform');
+
+var _contributeform2 = _interopRequireDefault(_contributeform);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _jsxFileName = '/home/ubuntu/workspace/Ethereum Udemy Course/Project_3rd-KickStarter/pages/campaigns/show.js?entry';
@@ -59,19 +69,75 @@ var CampaignShow = function (_Component) {
     }
 
     (0, _createClass3.default)(CampaignShow, [{
+        key: 'renderCards',
+        value: function renderCards() {
+            var _props = this.props,
+                balance = _props.balance,
+                manager = _props.manager,
+                minimumContribution = _props.minimumContribution,
+                requestsCount = _props.requestsCount,
+                approversCount = _props.approversCount;
+
+            var items = [{
+                header: manager,
+                meta: 'Address of Manager',
+                description: 'The manager created this campaign',
+                style: { overflowWrap: 'break-word' }
+            }, {
+                header: minimumContribution,
+                meta: 'Minimum Contribution (wei)',
+                description: 'You must contribute at least this much wei'
+            }, {
+                header: requestsCount,
+                meta: 'Number of Requests',
+                description: 'A request tries to withraw money from the contract (must be approved by contributors) '
+            }, {
+                header: approversCount,
+                meta: 'Number of approvers',
+                description: 'Number of people who have already donated to this campaign'
+            }, {
+                header: _web2.default.utils.fromWei(balance, 'ether'),
+                meta: 'Campaign Balance (ether)',
+                description: 'The balance is how much money this campaign has'
+            }];
+
+            return _react2.default.createElement(_semanticUiReact.Card.Group, { items: items, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 66
+                }
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(_layout2.default, {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 23
+                    lineNumber: 70
                 }
             }, _react2.default.createElement('h3', {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 24
+                    lineNumber: 71
                 }
-            }, 'Campaign Show '));
+            }, 'Campaign Show '), _react2.default.createElement(_semanticUiReact.Grid, {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 72
+                }
+            }, _react2.default.createElement(_semanticUiReact.Grid.Column, { width: 10, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 73
+                }
+            }, this.renderCards()), _react2.default.createElement(_semanticUiReact.Grid.Column, { width: 6, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 76
+                }
+            }, _react2.default.createElement(_contributeform2.default, { address: this.props.address, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 77
+                }
+            }))));
         }
     }], [{
         key: 'getInitialProps',
@@ -89,6 +155,7 @@ var CampaignShow = function (_Component) {
                             case 3:
                                 summary = _context.sent;
                                 return _context.abrupt('return', {
+                                    address: props.query.address,
                                     minimumContribution: summary[0],
                                     balance: summary[1],
                                     requestsCount: summary[2],
@@ -116,4 +183,4 @@ var CampaignShow = function (_Component) {
 }(_react.Component);
 
 exports.default = CampaignShow;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2NhbXBhaWducy9zaG93LmpzIl0sIm5hbWVzIjpbIlJlYWN0IiwiQ29tcG9uZW50IiwiTGF5b3V0IiwiQ2FtcGFpZ24iLCJDYW1wYWlnblNob3ciLCJwcm9wcyIsImNhbXBhaWduIiwicXVlcnkiLCJhZGRyZXNzIiwibWV0aG9kcyIsImdldFN1bW1hcnkiLCJjYWxsIiwic3VtbWFyeSIsIm1pbmltdW1Db250cmlidXRpb24iLCJiYWxhbmNlIiwicmVxdWVzdHNDb3VudCIsImFwcHJvdmVyc0NvdW50IiwibWFuYWdlciJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLEFBQU8sQUFBUTs7OztBQUNmLEFBQU8sQUFBWTs7OztBQUNuQixBQUFPLEFBQWM7Ozs7Ozs7OztJQUVmLEE7Ozs7Ozs7Ozs7O2lDQWdCTSxBQUNKO21DQUNJLEFBQUM7OzhCQUFEO2dDQUFBLEFBQ0c7QUFESDtBQUFBLGFBQUEsa0JBQ0csY0FBQTs7OEJBQUE7Z0NBQUE7QUFBQTtBQUFBLGVBRlAsQUFDSSxBQUNHLEFBR1Y7Ozs7O2lIQXBCNEIsQTs7Ozs7aUNBRW5CO0EsMkNBQVcsd0JBQVMsTUFBQSxBQUFNLE1BQWYsQSxBQUFxQjs7dUNBRWpCLFNBQUEsQUFBUyxRQUFULEFBQWlCLGFBQWpCLEFBQThCLEE7O2lDQUE3QztBOzt5REFHbUIsUUFEbkIsQUFDbUIsQUFBUSxBQUM3Qjs2Q0FBUyxRQUZQLEFBRU8sQUFBUSxBQUNqQjttREFBZSxRQUhiLEFBR2EsQUFBUSxBQUN2QjtvREFBZ0IsUUFKZCxBQUljLEFBQVEsQUFDeEI7NkNBQVMsUUFBQSxBLEFBTFAsQUFLZTtBQUxmLEFBQ0Y7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFUZSxBLEFBeUIzQjs7a0JBQUEsQUFBZSIsImZpbGUiOiJzaG93LmpzP2VudHJ5Iiwic291cmNlUm9vdCI6Ii9ob21lL3VidW50dS93b3Jrc3BhY2UvRXRoZXJldW0gVWRlbXkgQ291cnNlL1Byb2plY3RfM3JkLUtpY2tTdGFydGVyIn0=
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2NhbXBhaWducy9zaG93LmpzIl0sIm5hbWVzIjpbIlJlYWN0IiwiQ29tcG9uZW50IiwiTGF5b3V0IiwiQ2FtcGFpZ24iLCJDYXJkIiwiR3JpZCIsIndlYjMiLCJDb250cmlidXRlRm9ybSIsIkNhbXBhaWduU2hvdyIsInByb3BzIiwiYmFsYW5jZSIsIm1hbmFnZXIiLCJtaW5pbXVtQ29udHJpYnV0aW9uIiwicmVxdWVzdHNDb3VudCIsImFwcHJvdmVyc0NvdW50IiwiaXRlbXMiLCJoZWFkZXIiLCJtZXRhIiwiZGVzY3JpcHRpb24iLCJzdHlsZSIsIm92ZXJmbG93V3JhcCIsInV0aWxzIiwiZnJvbVdlaSIsInJlbmRlckNhcmRzIiwiYWRkcmVzcyIsImNhbXBhaWduIiwicXVlcnkiLCJtZXRob2RzIiwiZ2V0U3VtbWFyeSIsImNhbGwiLCJzdW1tYXJ5Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsQUFBTyxBQUFROzs7O0FBQ2YsQUFBTyxBQUFZOzs7O0FBQ25CLEFBQU8sQUFBYzs7OztBQUNyQixBQUFRLEFBQU07O0FBQ2QsQUFBTyxBQUFVOzs7O0FBQ2pCLEFBQU8sQUFBb0I7Ozs7Ozs7OztJLEFBRXJCOzs7Ozs7Ozs7OztzQ0FtQlc7eUJBT0wsS0FQSyxBQU9BO2dCQVBBLEFBRUwsaUJBRkssQUFFTDtnQkFGSyxBQUdMLGlCQUhLLEFBR0w7Z0JBSEssQUFJTCw2QkFKSyxBQUlMO2dCQUpLLEFBS0wsdUJBTEssQUFLTDtnQkFMSyxBQU1MLHdCQU5LLEFBTUwsQUFHSjs7Z0JBQU07d0JBQ0YsQUFDVyxBQUNQO3NCQUZKLEFBRVUsQUFDTjs2QkFISixBQUdnQixBQUNaO3VCQUFRLEVBQUMsY0FMSCxBQUNWLEFBSVksQUFBZTtBQUozQixBQUNJLGFBRk07d0JBT1YsQUFDWSxBQUNSO3NCQUZKLEFBRVUsQUFDTjs2QkFWTSxBQU9WLEFBR2lCO0FBSGpCLEFBQ0k7d0JBSUosQUFDWSxBQUNSO3NCQUZKLEFBRVUsQUFDTjs2QkFmTSxBQVlWLEFBR2dCO0FBSGhCLEFBQ0k7d0JBSUosQUFDWSxBQUNSO3NCQUZKLEFBRVUsQUFDTjs2QkFwQk0sQUFpQlYsQUFHaUI7QUFIakIsQUFDSTt3QkFLUSxjQUFBLEFBQUssTUFBTCxBQUFXLFFBQVgsQUFBbUIsU0FEL0IsQUFDWSxBQUEyQixBQUNuQztzQkFGSixBQUVVLEFBQ047NkJBekJSLEFBQWMsQUFzQlYsQUFHaUIsQUFLckI7QUFSSSxBQUNJOztpREFPRCxBQUFDLHNCQUFELEFBQU0sU0FBTSxPQUFaLEFBQW1COzhCQUFuQjtnQ0FBUCxBQUFPLEFBQ1Y7QUFEVTthQUFBOzs7O2lDQUVILEFBQ0o7bUNBQ0ksQUFBQzs7OEJBQUQ7Z0NBQUEsQUFDRztBQURIO0FBQUEsYUFBQSxrQkFDRyxjQUFBOzs4QkFBQTtnQ0FBQTtBQUFBO0FBQUEsZUFESCxBQUNHLEFBQ0EsbUNBQUEsQUFBQzs7OEJBQUQ7Z0NBQUEsQUFDSztBQURMO0FBQUEsK0JBQ00sY0FBRCxzQkFBQSxBQUFNLFVBQU8sT0FBYixBQUFvQjs4QkFBcEI7Z0NBQUEsQUFDSztBQURMO29CQURMLEFBQ0ssQUFDSyxBQUFLLEFBRVYsZ0NBQUMsY0FBRCxzQkFBQSxBQUFNLFVBQU8sT0FBYixBQUFvQjs4QkFBcEI7Z0NBQUEsQUFDSTtBQURKOytCQUNJLEFBQUMsMENBQWUsU0FBUyxLQUFBLEFBQUssTUFBOUIsQUFBb0M7OEJBQXBDO2dDQVJoQixBQUNJLEFBRUcsQUFJSyxBQUNJLEFBS25CO0FBTG1COzs7Ozs7aUgsQUFuRVM7Ozs7O2lDQUVuQjtBLDJDQUFXLHdCQUFTLE1BQUEsQUFBTSxNQUFNLEEsQUFBckI7O3VDQUVJLFNBQUEsQUFBUyxRQUFULEFBQWlCLGFBQWpCLEFBQThCLEE7O2lDQUE3QztBOzs2Q0FHTyxNQUFBLEFBQU0sTUFEYixBQUNtQixBQUNyQjt5REFBcUIsUUFGbkIsQUFFbUIsQUFBUSxBQUM3Qjs2Q0FBUyxRQUhQLEFBR08sQUFBUSxBQUNqQjttREFBZSxRQUpiLEFBSWEsQUFBUSxBQUN2QjtvREFBZ0IsUUFMZCxBQUtjLEFBQVEsQUFDeEI7NkNBQVMsUUFOUCxBQU1PLEFBQVEsQTtBQU5mLEFBQ0Y7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFUZSxBLEFBNkUzQjs7a0JBQUEsQUFBZSIsImZpbGUiOiJzaG93LmpzP2VudHJ5Iiwic291cmNlUm9vdCI6Ii9ob21lL3VidW50dS93b3Jrc3BhY2UvRXRoZXJldW0gVWRlbXkgQ291cnNlL1Byb2plY3RfM3JkLUtpY2tTdGFydGVyIn0=
